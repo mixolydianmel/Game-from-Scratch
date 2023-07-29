@@ -1,0 +1,27 @@
+= Game from Scratch
+Melody Henrich
+
+== What?
+This repository is part of a project to build a game (and an engine) from scratch.
+
+== Why?
+This project is mostly for educational purposes,
+though eventually a game will be made as a result of the work done here.
+
+== Who/Where/When?
+This project was started by Melody Henrich at Northeastern University in 2023.
+This will be a long-term endeavor, spanning multiple months if not years.
+
+== How?
+
+> How do I contribute?
+
+Start by writing a response to the https://github.com/mixolydianmel/Game-from-Scratch/discussions/2#discussion-5453681[Developer Requests] thread in our Discussions area.
+
+> How do I run the project (for users)?
+
+Release info WIP
+
+> How do I run the project (for developers)?
+
+Build info WIP
