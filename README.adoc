@@ -20,8 +20,54 @@ Start by writing a response to the https://github.com/mixolydianmel/Game-from-Sc
 
 > How do I run the project (for users)?
 
-Release info WIP
+_Release info WIP_
 
 > How do I run the project (for developers)?
 
-Build info WIP
+First, download and install https://cmake.org/download/[CMake].
+CMake should be available in your package manager of choice, if you are using one.
+
+=== Windows
+
+1. Clone the project locally and `cd` into it
+
+....
+> git clone https://github.com/mixolydianmel/Game-from-Scratch.git GFS
+> cd GFS
+....
+
+2. Run the included `build.bat` file
+
+....
+> build.bat
+....
+
+3. The newly created `build` directory in the root of the project contains the executable
+
+....
+> cd build
+> GameFromScratch.exe
+....
+
+=== Linux / macOS
+
+1. Clone the project locally and `cd` into it
+
+....
+$ git clone https://github.com/mixolydianmel/Game-from-Scratch.git GFS
+$ cd GFS
+....
+
+2. Run the included `build.sh` file
+
+....
+$ chmod +x build.sh
+$ ./build.sh
+....
+
+3. The newly created `build` directory in the root of the project contains the executable
+
+....
+$ cd build
+$ ./GameFromScratch
+....
