@@ -18,14 +18,20 @@ This will be a long-term endeavor, spanning multiple months if not years.
 
 Start by writing a response to the https://github.com/mixolydianmel/Game-from-Scratch/discussions/2#discussion-5453681[Developer Requests] thread in our Discussions area.
 
+'''
+
 > How do I run the project (for users)?
 
 _Release info WIP_
+
+'''
 
 > How do I run the project (for developers)?
 
 First, download and install https://cmake.org/download/[CMake].
 CMake should be available in your package manager of choice, if you are using one.
+
+NOTE: The build output directory can be changed by modifying the exported `BUILD_DIR` varibale in whichever script you are using.
 
 === Windows
 
