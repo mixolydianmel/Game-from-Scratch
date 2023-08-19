@@ -4,6 +4,7 @@ BUILD_DIR=build
 
 echo "=== Generating CMake build files ==="
 mkdir -p $BUILD_DIR
+mkdir -p $LIBS_DIR
 cmake -S . -B $BUILD_DIR
 
 echo "=== Building the project ==="
