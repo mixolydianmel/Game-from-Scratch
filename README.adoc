@@ -51,8 +51,8 @@ NOTE: The build output directory can be changed by modifying the exported `BUILD
 3. The newly created `build` directory in the root of the project contains the executable
 
 ....
-> cd build
-> GameFromScratch.exe
+> cd .\build\Release\
+> gfs.exe
 ....
 
 === Linux / macOS
@@ -75,5 +75,5 @@ $ ./build.sh
 
 ....
 $ cd build
-$ ./GameFromScratch
+$ ./gfs
 ....
