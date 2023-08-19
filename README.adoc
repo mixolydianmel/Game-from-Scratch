@@ -52,7 +52,7 @@ NOTE: The build output directory can be changed by modifying the exported `BUILD
 
 ....
 > cd build
-> GameFromScratch.exe
+> gfs.exe
 ....
 
 === Linux / macOS
