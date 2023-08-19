@@ -75,5 +75,5 @@ $ ./build.sh
 
 ....
 $ cd build
-$ ./GameFromScratch
+$ ./gfs
 ....
