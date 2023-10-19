@@ -8,6 +8,7 @@ video tutorials.
  - Bobyshev Alexander
  - Laurent Aphecetche
  - Matt Arsenault
+ - Takuro Ashie
  - ashishgamedev
  - David Avedissian
  - Keith Bauer
@@ -81,6 +82,7 @@ video tutorials.
  - Jonathan Hale
  - hdf89shfdfs
  - Sylvain Hellegouarch
+ - Björn Hempel
  - Matthew Henry
  - heromyth
  - Lucas Hinderberger
@@ -124,6 +126,7 @@ video tutorials.
  - lukect
  - Tristam MacDonald
  - Hans Mackowiak
+ - Ramiro Magno
  - Дмитри Малышев
  - Zbigniew Mandziejewicz
  - Adam Marcus
@@ -179,9 +182,11 @@ video tutorials.
  - pthom
  - Martin Pulec
  - Guillaume Racicot
+ - Christian Rauch
  - Philip Rideout
  - Eddie Ringle
  - Max Risuhin
+ - Joe Roback
  - Jorge Rodriguez
  - Luca Rood
  - Ed Ropple

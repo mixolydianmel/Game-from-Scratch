@@ -148,11 +148,11 @@ typedef xkb_keysym_t (* PFN_xkb_compose_state_get_one_sym)(struct xkb_compose_st
 
 typedef enum _GLFWdecorationSideWayland
 {
-    mainWindow,
-    topDecoration,
-    leftDecoration,
-    rightDecoration,
-    bottomDecoration,
+    GLFW_MAIN_WINDOW,
+    GLFW_TOP_DECORATION,
+    GLFW_LEFT_DECORATION,
+    GLFW_RIGHT_DECORATION,
+    GLFW_BOTTOM_DECORATION
 } _GLFWdecorationSideWayland;
 
 typedef struct _GLFWdecorationWayland
@@ -168,6 +168,12 @@ typedef struct _GLFWofferWayland
     GLFWbool                    text_plain_utf8;
     GLFWbool                    text_uri_list;
 } _GLFWofferWayland;
+
+typedef struct _GLFWscaleWayland
+{
+    struct wl_output*           output;
+    int                         factor;
+} _GLFWscaleWayland;
 
 // Wayland-specific per-window data
 //
@@ -209,15 +215,13 @@ typedef struct _GLFWwindowWayland
 
     // We need to track the monitors the window spans on to calculate the
     // optimal scaling factor.
-    int                         scale;
-    _GLFWmonitor**              monitors;
-    int                         monitorsCount;
-    int                         monitorsSize;
+    int                         contentScale;
+    _GLFWscaleWayland*          scales;
+    int                         scaleCount;
+    int                         scaleSize;
 
-    struct {
-        struct zwp_relative_pointer_v1*    relativePointer;
-        struct zwp_locked_pointer_v1*      lockedPointer;
-    } pointerLock;
+    struct zwp_relative_pointer_v1* relativePointer;
+    struct zwp_locked_pointer_v1*   lockedPointer;
 
     struct zwp_idle_inhibitor_v1*          idleInhibitor;
 
@@ -259,8 +263,7 @@ typedef struct _GLFWlibraryWayland
     _GLFWwindow*                dragFocus;
     uint32_t                    dragSerial;
 
-    int                         compositorVersion;
-    int                         seatVersion;
+    const char*                 tag;
 
     struct wl_cursor_theme*     cursorTheme;
     struct wl_cursor_theme*     cursorThemeHiDPI;
@@ -270,12 +273,12 @@ typedef struct _GLFWlibraryWayland
     uint32_t                    serial;
     uint32_t                    pointerEnterSerial;
 
-    int32_t                     keyboardRepeatRate;
-    int32_t                     keyboardRepeatDelay;
-    int                         keyboardLastKey;
-    int                         keyboardLastScancode;
+    int                         keyRepeatTimerfd;
+    int32_t                     keyRepeatRate;
+    int32_t                     keyRepeatDelay;
+    int                         keyRepeatScancode;
+
     char*                       clipboardString;
-    int                         timerfd;
     short int                   keycodes[256];
     short int                   scancodes[GLFW_KEY_LAST + 1];
     char                        keynames[GLFW_KEY_LAST + 1][5];
@@ -349,7 +352,7 @@ typedef struct _GLFWmonitorWayland
 
     int                         x;
     int                         y;
-    int                         scale;
+    int                         contentScale;
 } _GLFWmonitorWayland;
 
 // Wayland-specific per-cursor data
@@ -366,7 +369,6 @@ typedef struct _GLFWcursorWayland
 
 void _glfwAddOutputWayland(uint32_t name, uint32_t version);
 void _glfwUpdateContentScaleWayland(_GLFWwindow* window);
-GLFWbool _glfwInputTextWayland(_GLFWwindow* window, uint32_t scancode);
 
 void _glfwAddSeatListenerWayland(struct wl_seat* seat);
 void _glfwAddDataDeviceListenerWayland(struct wl_data_device* device);

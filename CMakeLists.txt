@@ -2,17 +2,21 @@ cmake_minimum_required(VERSION 3.1)
 project(gfs C CXX)
 
 file(GLOB SOURCES "src/*.cpp")
+add_executable(${PROJECT_NAME} ${SOURCES})
 
-# GLFW
-set(GLFW_DIR ${CMAKE_SOURCE_DIR}/libs/glfw)
-add_subdirectory(${GLFW_DIR})
-include_directories(${GLFW_DIR}/include)
+set(OpenGL_GL_PREFERENCE "GLVND")
+find_package(OpenGL REQUIRED)
+find_package(GLEW REQUIRED)
 
-# GLAD
-set(GLAD_DIR ${CMAKE_SOURCE_DIR}/libs/glad)
-file(GLOB GLAD_SOURCES libs/glad/src/gl.c)
-include_directories(${GLAD_DIR}/include)
+# https://www.glfw.org/docs/latest/context_guide.html#context_glext_auto
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+add_subdirectory("libs/glfw")
 
-add_executable(${PROJECT_NAME} ${SOURCES} ${GLAD_SOURCES})
+include_directories(${OPENGL_INCLUDE_DIRS})
+include_directories(${GLEW_INCLUDE_DIRS})
 
-target_link_libraries(${PROJECT_NAME} PUBLIC glfw)
+target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARY})
+target_link_libraries(${PROJECT_NAME} ${GLEW_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} glfw)
