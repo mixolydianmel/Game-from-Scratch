@@ -31,49 +31,19 @@ _Release info WIP_
 First, download and install https://cmake.org/download/[CMake].
 CMake should be available in your package manager of choice, if you are using one.
 
+Then, downoad and install https://glew.sourceforge.net/[GLEW].
+There are instructions on the page if you need them.
+
+Next, clone the repo to your local machine.
+....
+$ git clone https://github.com/mixolydianmel/Game-from-Scratch.git -b development --recursive
+....
+
+From there, building the project is accomplished by running the build script for your platform
+(build.sh for Unix systems, build.bat for Windows).
+After running, there should be a `build` directory created, which will contain the `gfs` executable.
+
 NOTE: The build output directory can be changed by modifying the exported `BUILD_DIR` varibale in whichever script you are using.
 
-=== Windows
-
-1. Clone the project locally and `cd` into it
-
-....
-> git clone https://github.com/mixolydianmel/Game-from-Scratch.git GFS
-> cd GFS
-....
-
-2. Run the included `build.bat` file
-
-....
-> build.bat
-....
-
-3. The newly created `build` directory in the root of the project contains the executable
-
-....
-> cd .\build\Release\
-> gfs.exe
-....
-
-=== Linux / macOS
-
-1. Clone the project locally and `cd` into it
-
-....
-$ git clone https://github.com/mixolydianmel/Game-from-Scratch.git GFS
-$ cd GFS
-....
-
-2. Run the included `build.sh` file
-
-....
-$ chmod +x build.sh
-$ ./build.sh
-....
-
-3. The newly created `build` directory in the root of the project contains the executable
-
-....
-$ cd build
-$ ./gfs
-....
+On Windows, you may have to open a Visual Studio project from the `build` directory and build using that.
+The executable should be in the same location.
