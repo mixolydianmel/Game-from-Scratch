@@ -1,4 +1,4 @@
-#include <glad/gl.h>
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 #include <iostream>
@@ -16,9 +16,12 @@ int main(void)
 
     glfwMakeContextCurrent(window);
 
-    int gladVersion = gladLoadGL(glfwGetProcAddress);
-    std::cout << "GL " << GLAD_VERSION_MAJOR(gladVersion)
-            << "." << GLAD_VERSION_MINOR(gladVersion) << std::endl;
+    GLenum status = glewInit();
+    if (status != GLEW_OK)
+    {
+        std::cerr << "Err initializing GLEW" << std::endl;
+        std::cerr << glewGetErrorString(status) << std::endl;
+    }
 
     glClearColor(1.f,0.f,0.f,1.f);
 
